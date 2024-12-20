@@ -1,6 +1,0 @@
-torch==2.5.1
-numpy==1.26.0
-torchvision==0.20.1
-scikit-learn==1.5.2
-flwr-datasets==0.3.0
-einops==0.8.0

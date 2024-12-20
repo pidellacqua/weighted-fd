@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wfd"
+version = "0.0.0"
+authors = [
+    { name = "Pierluigi Dell'Acqua", email = "pierluigi.dellacqua@unime.it" },
+    { name = "Lemuel Puglisi", email = "lemuel.puglisi@phd.unict.it" }
+]
+description = "Official pytorch implementation of 'Weighted Federated Distillation: A Knowledge-Quality-Aware, Teacher-Less Strategy'"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+dependencies = [
+    "torch==2.*",
+    "numpy==1.*",
+    "torchvision==0.*",
+    "scikit-learn==1.5.*",
+    "flwr-datasets==0.3.0",
+    "einops",
+    "tqdm",
+    "rich"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
