@@ -58,6 +58,7 @@ if __name__ == '__main__':
     parser.add_argument("--local_batchsize",    type=int,    default=64)
     parser.add_argument("--proxy_batchsize",    type=int,    default=512)
     parser.add_argument("--lr",                 type=float,  default=0.1)
+    parser.add_argument("--proxy_fraction",     type=float,  default=1.0)
     
     # KuLSIF params
     parser.add_argument("--lamda",     type=float,  default=0.0632)
@@ -111,8 +112,7 @@ if __name__ == '__main__':
     #=====================================================================
 
     console.print("[bold green]Initialising the proxy dataset")
-    proxy_dataset = ProxyDataset(data_path)
-    
+    proxy_dataset = ProxyDataset(data_path, fraction=args.proxy_fraction)
     
     #=====================================================================
     # Instantiate server

@@ -54,7 +54,7 @@ class StoredDataset:
 
 class ProxyDataset:
 
-    def __init__(self, dataset_path: str):
+    def __init__(self, dataset_path: str, fraction: float = 1.):
         """
         The dictionary contains a key for each class, and the values are
         the images that belong to that class. All the images from all the 
@@ -63,6 +63,12 @@ class ProxyDataset:
         dictionary = torch.load(dataset_path, weights_only=True)['proxy_set']
         self.proxy_images = dictionary['images']
         self.proxy_labels = dictionary['labels']
+        if fraction < 1.: self._reduce_size(fraction)
+
+    def _reduce_size(self, fraction):
+        new_size = int(len(self.proxy_images) * fraction)
+        self.proxy_images = self.proxy_images[:new_size]
+        self.proxy_labels = self.proxy_labels[:new_size]
 
     def __len__(self):
         return self.proxy_images.shape[0]
