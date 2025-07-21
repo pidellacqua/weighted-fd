@@ -72,9 +72,11 @@ class WeightedFDServer:
         images, labels = self.proxy_dataset[random_indices]
         images, labels = images.to(device), labels.to(device)
 
-        kl_results = torch.zeros((images.shape[0], 1,  num_classes), device=images.device)
-        softlabels = torch.zeros((images.shape[0], num_clients, num_classes), device=images.device)
-        onehot_labels = torch.nn.functional.one_hot(labels, num_classes=10).to(device)
+        
+        kl_results = torch.zeros((images.shape[0], 1,  num_clients), device=device)
+        softlabels = torch.zeros((images.shape[0], num_clients, num_classes), device=device)
+        onehot_labels = torch.nn.functional.one_hot(labels, num_classes=num_classes).to(device)
+
 
         for i, client in enumerate(self.clients):
 
