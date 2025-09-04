@@ -166,3 +166,9 @@ nohup.out
 notebooks/data
 
 *at
+main-clients-number.py
+main-proxy-fraction.py
+main-ram-evaluation.py
+
+*.png
+
