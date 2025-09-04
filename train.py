@@ -1,7 +1,6 @@
 import os
 import argparse
 import warnings
-import resource
 from typing import List
 warnings.filterwarnings("ignore")
 
@@ -207,5 +206,4 @@ if __name__ == '__main__':
             console.print(table)                    
             progress.advance(task)
     
-    usage = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
-    print(f"Peak memory usage: {usage / 1024:.2f} MB")
+    
