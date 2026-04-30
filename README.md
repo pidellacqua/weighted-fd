@@ -40,7 +40,7 @@ In Weighted-FD, the aggregation function is adapted based on the quality of know
 The project requires Python 3.9+. You can install the package and its dependencies locally via `pip`:
 
 ```bash
-git clone https://github.com/your-username/weighted-fd.git
+git clone https://github.com/pidellacqua/weighted-fd.git
 cd weighted-fd
 pip install -e .
 ```
