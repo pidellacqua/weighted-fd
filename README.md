@@ -1,8 +1,30 @@
 # Weighted-FD
 
-Official PyTorch implementation of **"Weighted Federated Distillation: A Knowledge-Quality-Aware, Teacher-Less Strategy"**.
+Official PyTorch implementation of **["Weighted Federated Distillation: A Knowledge-Quality-Aware, Teacher-Less Strategy"](https://www.sciencedirect.com/science/article/pii/S0167739X26001512)**.
 
 This repository contains the framework and code to run experiments evaluating the Weighted-FD method alongside baseline federated distillation approaches.
+
+## Overview
+
+Federated Learning has emerged as a promising privacy-preserving collaborative learning paradigm, highly suitable for deploying Artificial Intelligence at the network's edge. However, the performance of FL systems is often undermined by the heterogeneity of edge devices and the non-Independent and Identically Distributed (non-IID) nature of data across them.
+
+While Federated Distillation mitigates these issues by transferring knowledge across heterogeneous models, existing methods typically rely on uniform aggregation strategies that fail to consider the quality or reliability of client predictions.
+
+To address this critical gap, we introduce **Weighted-FD**, a novel collaborative framework that incorporates a quality-aware aggregation strategy. By dynamically evaluating the quality of knowledge contributed by each client, Weighted-FD adjusts their influence on the global knowledge representation, prioritizing highly reliable predictions and ensuring a more accurate aggregation process without requiring a centralized teacher model.
+
+### Key Features and Contributions
+
+- **Quality-Aware Aggregation**: Introduces a lightweight weighting mechanism that estimates the reliability of client predictions (using the probability assigned to the ground-truth class) to compute high-quality global soft labels.
+- **Robustness in Strong Non-IID Settings**: Consistently outperforms existing baselines under severe data heterogeneity. For instance, on the CIFAR-10 dataset, it achieves accuracy gains of up to 57.12% over FedMD and 49.34% over Selective-FD.
+- **Edge-Computing Efficiency**: Operates without imposing additional computational overhead on peripheral clients and maintains extremely low memory consumption, making it ideal for resource-constrained edge environments.
+- **Theoretical Foundation**: Provides rigorous mathematical analysis demonstrating the convergence behavior of the local distillation phase and formalizing the conditions under which quality-aware aggregation surpasses standard uniform averaging.
+
+## Overall framework of Weighted-FD
+
+![Schema](./img/schema.png)
+
+Federated Distillation consists of four iterative steps: (I) clients train personalized models on their local data; (II) they generate local soft labels for shared proxy samples and send these to the server; (III) the server aggregates the predictions into global soft labels; (IV) clients refine their models using KD with the global soft labels.
+In Weighted-FD, the aggregation function is adapted based on the quality of knowledge each client provides for each proxy sample.
 
 ## Features
 
@@ -85,3 +107,22 @@ python train.py \
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Citation
+
+If you use this work in your research, please cite our paper:
+
+```bibtex
+@article{DELLACQUA2026108517,
+  title = {Weighted Federated Distillation: A knowledge-quality-aware, teacher-less strategy},
+  journal = {Future Generation Computer Systems},
+  volume = {183},
+  pages = {108517},
+  year = {2026},
+  issn = {0167-739X},
+  doi = {https://doi.org/10.1016/j.future.2026.108517},
+  url = {https://www.sciencedirect.com/science/article/pii/S0167739X26001512},
+author = {Pierluigi Dell’Acqua and Lemuel Puglisi and Francesco La Rosa and Lorenzo Carnevale and Daniele Ravì and Massimo Villari},
+keywords = {Knowledge distillation, Federated learning, Edge computing}
+}
+```
