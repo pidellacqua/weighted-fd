@@ -122,7 +122,7 @@ If you use this work in your research, please cite our paper:
   issn = {0167-739X},
   doi = {https://doi.org/10.1016/j.future.2026.108517},
   url = {https://www.sciencedirect.com/science/article/pii/S0167739X26001512},
-author = {Pierluigi Dell’Acqua and Lemuel Puglisi and Francesco La Rosa and Lorenzo Carnevale and Daniele Ravì and Massimo Villari},
-keywords = {Knowledge distillation, Federated learning, Edge computing}
+  author = {Pierluigi Dell’Acqua and Lemuel Puglisi and Francesco La Rosa and Lorenzo Carnevale and Daniele Ravì and Massimo Villari},
+  keywords = {Knowledge distillation, Federated learning, Edge computing}
 }
 ```
