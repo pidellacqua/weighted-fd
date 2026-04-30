@@ -21,7 +21,7 @@ To address this critical gap, we introduce **Weighted-FD**, a novel collaborativ
 
 ## Overall framework of Weighted-FD
 
-![Schema](./img/schema.png)
+![Schema](./assets/schema.png)
 
 Federated Distillation consists of four iterative steps: (I) clients train personalized models on their local data; (II) they generate local soft labels for shared proxy samples and send these to the server; (III) the server aggregates the predictions into global soft labels; (IV) clients refine their models using KD with the global soft labels.
 In Weighted-FD, the aggregation function is adapted based on the quality of knowledge each client provides for each proxy sample.
